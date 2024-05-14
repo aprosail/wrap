@@ -7,15 +7,13 @@ void main() {
     await t.pumpWidget(Builder(
         builder: (context) => const ColorProbe()
             .wrapForeground(context, foreground)
-            .wrapBackground(background)
             .ensureTextEnvironment(context)));
     expect(find.text('font color: $foreground'), findsOneWidget);
     expect(find.text('icon color: $foreground'), findsOneWidget);
   });
 }
 
-const background = Color(0xff804044);
-const foreground = Color(0xffdedcda);
+const foreground = Color(0xff804044);
 
 class ColorProbe extends StatelessWidget {
   const ColorProbe({super.key});
