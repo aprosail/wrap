@@ -21,15 +21,8 @@ class ColorProbe extends StatelessWidget {
   const ColorProbe({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final items = <Widget>[
-      Text('font color: ${DefaultTextStyle.of(context).style.color}'),
-      Text('icon color: ${IconTheme.of(context).color}'),
-    ];
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: items,
-    ).wrapCenter;
-  }
+  Widget build(BuildContext context) => [
+        Text('font color: ${DefaultTextStyle.of(context).style.color}'),
+        Text('icon color: ${IconTheme.of(context).color}'),
+      ].column(mainAxisSize: MainAxisSize.min).wrapCenter;
 }
