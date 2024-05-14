@@ -1,3 +1,10 @@
+## 0.2.0
+
+- Wrap center.
+- Wrap list including `Row`, `Column` and `Stack`,
+  and apply all corresponding parameters.
+- Syntax sugar for center row and center column.
+
 ## 0.1.0
 
 - Wrap background using `ColoredBox`.
