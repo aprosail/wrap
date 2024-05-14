@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import 'align.dart';
+
 extension WrapList on List<Widget> {
   Widget column({
     Key? key,
@@ -56,4 +58,38 @@ extension WrapList on List<Widget> {
         clipBehavior: clipBehavior,
         children: this,
       );
+}
+
+extension WrapListSugar on List<Widget> {
+  Widget centerColumn({
+    Key? key,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+  }) =>
+      column(
+        key: key,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: crossAxisAlignment,
+        textDirection: textDirection,
+        verticalDirection: verticalDirection,
+        textBaseline: textBaseline,
+      ).wrapCenter;
+
+  Widget centerRow({
+    Key? key,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+  }) =>
+      row(
+        key: key,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: crossAxisAlignment,
+        textDirection: textDirection,
+        verticalDirection: verticalDirection,
+        textBaseline: textBaseline,
+      ).wrapCenter;
 }
