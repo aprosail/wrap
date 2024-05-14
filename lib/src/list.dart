@@ -40,4 +40,20 @@ extension WrapList on List<Widget> {
         textBaseline: textBaseline,
         children: this,
       );
+
+  Widget stack({
+    Key? key,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    TextDirection? textDirection,
+    StackFit fit = StackFit.loose,
+    Clip clipBehavior = Clip.hardEdge,
+  }) =>
+      Stack(
+        key: key,
+        alignment: alignment,
+        textDirection: textDirection,
+        fit: fit,
+        clipBehavior: clipBehavior,
+        children: this,
+      );
 }
