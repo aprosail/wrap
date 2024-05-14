@@ -27,11 +27,9 @@ class ColorProbe extends StatelessWidget {
       Text('icon color: ${IconTheme.of(context).color}'),
     ];
 
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: items,
-      ),
-    );
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: items,
+    ).wrapCenter;
   }
 }
