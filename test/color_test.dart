@@ -24,5 +24,5 @@ class ColorProbe extends StatelessWidget {
   Widget build(BuildContext context) => [
         Text('font color: ${DefaultTextStyle.of(context).style.color}'),
         Text('icon color: ${IconTheme.of(context).color}'),
-      ].column(mainAxisSize: MainAxisSize.min).wrapCenter;
+      ].centerColumn();
 }
