@@ -1,3 +1,9 @@
+## 0.4.0
+
+- Wrap string into text widget.
+- Modification about text style in context.
+- Optimize file structure and add corresponding tests.
+
 ## 0.3.0
 
 - `ReContext` as a conciser way for `Builder`.

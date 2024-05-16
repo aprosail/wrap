@@ -42,6 +42,11 @@ extension WrapTextEnvironment on Widget {
           .ensureMedia(context);
 }
 
+extension StringToTextWidget on String {
+  /// Convert a [String] into a [Text] widget.
+  Widget get textWidget => Text(this);
+}
+
 extension WrapTextStyle on Widget {
   /// If you want to modify based on current text style from context,
   /// please consider [modifyTextStyle],
@@ -68,14 +73,20 @@ extension WrapTextStyle on Widget {
   /// Calling those methods more than once might waste performance.
   Widget wrapFontSize(BuildContext context, double size) {
     assert(size > 0);
-    return modifyTextStyle(context, (style) => style.copyWith(fontSize: size));
+    return DefaultTextStyle(
+      style: DefaultTextStyle.of(context).style.copyWith(fontSize: size),
+      child: this,
+    );
   }
 
   /// Same as copy and modify the font family of [DefaultTextStyle.style]
   /// and wrap this widget with such data.
   /// Calling those methods more than once might waste performance.
   Widget wrapFontFamily(BuildContext context, String family) =>
-      modifyTextStyle(context, (style) => style.copyWith(fontFamily: family));
+      DefaultTextStyle(
+        style: DefaultTextStyle.of(context).style.copyWith(fontFamily: family),
+        child: this,
+      );
 
   /// Same as copy and modify the font family fallback
   /// of [DefaultTextStyle.style]
@@ -85,9 +96,11 @@ extension WrapTextStyle on Widget {
     BuildContext context,
     List<String> fontFamilyFallback,
   ) =>
-      modifyTextStyle(
-        context,
-        (style) => style.copyWith(fontFamilyFallback: fontFamilyFallback),
+      DefaultTextStyle(
+        style: DefaultTextStyle.of(context)
+            .style
+            .copyWith(fontFamilyFallback: fontFamilyFallback),
+        child: this,
       );
 
   /// Same as copy and modify the color of [DefaultTextStyle.style]
