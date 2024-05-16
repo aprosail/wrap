@@ -7,7 +7,6 @@ makes Flutter code hard to read, so here comes this package.
 This package provides a chain style programming syntax
 to make your code clean and tidy,
 especially with so many single child widgets.
-Talk is cheap, you can read the following code examples to feel it.
 
 ## How to use
 
