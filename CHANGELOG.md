@@ -1,3 +1,7 @@
+## 0.5.1
+
+- Fix bug: get size when build conflict.
+
 ## 0.5.0
 
 - Widget size change listener.
