@@ -1,9 +1,15 @@
+## 0.5.2
+
+- Fix bug about calling `setState` when `build`.
+
 ## 0.5.1
 
+- **Deprecated**: still contains bugs.
 - Fix bug: get size when build conflict.
 
 ## 0.5.0
 
+- **Deprecated**: still contains bugs.
 - Widget size change listener.
 - Wrap padding (edge insets).
 - Text wrapper on string with parameters.
