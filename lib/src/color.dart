@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import 'text.dart';
+
 extension WrapColorStyle on Widget {
   /// Wrap with a [ColoredBox] with specified [color].
   Widget wrapBackground(Color color) => ColoredBox(color: color, child: this);
@@ -16,13 +18,6 @@ extension WrapColorStyle on Widget {
   /// no ensure wrapper is needed.
   Widget wrapForeground(BuildContext context, Color color) =>
       wrapFontColor(context, color).wrapIconColor(context, color);
-
-  /// Same as copy and modify the color of [DefaultTextStyle.style]
-  /// and wrap this widget with such data.
-  Widget wrapFontColor(BuildContext context, Color color) => DefaultTextStyle(
-        style: DefaultTextStyle.of(context).style.copyWith(color: color),
-        child: this,
-      );
 
   /// Same as copy and modify the [IconThemeData.color]
   /// and wrap this widget with such data.

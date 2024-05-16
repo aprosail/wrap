@@ -41,3 +41,41 @@ extension WrapTextEnvironment on Widget {
       ensureDirectionality(context, defaultDirection: defaultDirection)
           .ensureMedia(context);
 }
+
+extension WrapTextStyle on Widget {
+  Widget wrapTextStyle(TextStyle style) =>
+      DefaultTextStyle(style: style, child: this);
+
+  Widget modifyTextStyle(
+    BuildContext context,
+    TextStyle Function(TextStyle raw) modifier,
+  ) =>
+      DefaultTextStyle(
+        style: modifier(DefaultTextStyle.of(context).style),
+        child: this,
+      );
+
+  Widget wrapFontSize(BuildContext context, double size) {
+    assert(size > 0);
+    return modifyTextStyle(context, (style) => style.copyWith(fontSize: size));
+  }
+
+  Widget wrapFontFamily(BuildContext context, String family) =>
+      modifyTextStyle(context, (style) => style.copyWith(fontFamily: family));
+
+  Widget wrapFontFamilyFallback(
+    BuildContext context,
+    List<String> fontFamilyFallback,
+  ) =>
+      modifyTextStyle(
+        context,
+        (style) => style.copyWith(fontFamilyFallback: fontFamilyFallback),
+      );
+
+  /// Same as copy and modify the color of [DefaultTextStyle.style]
+  /// and wrap this widget with such data.
+  Widget wrapFontColor(BuildContext context, Color color) => DefaultTextStyle(
+        style: DefaultTextStyle.of(context).style.copyWith(color: color),
+        child: this,
+      );
+}
