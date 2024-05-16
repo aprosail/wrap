@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-extension WrapSizeChange on Widget {
+extension WrapSize on Widget {
   /// Listen the size change of this widget and handle [listener] as hook.
   ///
   /// This wrapper should be placed close to root of the widget tree,
@@ -22,4 +22,7 @@ extension WrapSizeChange on Widget {
       child: SizeChangedLayoutNotifier(child: this),
     );
   }
+
+  Widget wrapPadding(EdgeInsets padding) =>
+      Padding(padding: padding, child: this);
 }
