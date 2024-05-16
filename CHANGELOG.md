@@ -1,6 +1,7 @@
 ## 0.5.0
 
 - Widget size change listener.
+- Text wrapper on string with parameters.
 
 ## 0.4.1
 

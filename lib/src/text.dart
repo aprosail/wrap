@@ -45,6 +45,11 @@ extension WrapTextEnvironment on Widget {
 extension StringToTextWidget on String {
   /// Convert a [String] into a [Text] widget.
   Widget get textWidget => Text(this);
+
+  /// If there's no parameter to modify, consider using [textWidget] instead,
+  /// which is a getter rather than method,
+  /// with better performance and conciser code style.
+  Widget text({TextAlign? align}) => Text(this, textAlign: align);
 }
 
 extension WrapTextStyle on Widget {
