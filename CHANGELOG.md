@@ -1,3 +1,9 @@
+## 0.5.0
+
+- Widget size change listener.
+- Wrap padding (edge insets).
+- Text wrapper on string with parameters.
+
 ## 0.4.1
 
 - Doc alert value modify cover in the same context.
