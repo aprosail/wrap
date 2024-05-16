@@ -43,6 +43,9 @@ extension WrapTextEnvironment on Widget {
 }
 
 extension WrapTextStyle on Widget {
+  /// If you want to modify based on current text style from context,
+  /// please consider [modifyTextStyle],
+  /// which will require a [BuildContext] while this method will not.
   Widget wrapTextStyle(TextStyle style) =>
       DefaultTextStyle(style: style, child: this);
 
@@ -55,14 +58,29 @@ extension WrapTextStyle on Widget {
         child: this,
       );
 
+  /// Same as copy and modify the font size of [DefaultTextStyle.style]
+  /// and wrap this widget with such data.
+  ///
+  /// This method will only modify one property.
+  /// When you are going to modify more than one property,
+  /// you should use [modifyTextStyle] or [wrapTextStyle] instead,
+  /// which is more effective.
+  /// Calling those methods more than once might waste performance.
   Widget wrapFontSize(BuildContext context, double size) {
     assert(size > 0);
     return modifyTextStyle(context, (style) => style.copyWith(fontSize: size));
   }
 
+  /// Same as copy and modify the font family of [DefaultTextStyle.style]
+  /// and wrap this widget with such data.
+  /// Calling those methods more than once might waste performance.
   Widget wrapFontFamily(BuildContext context, String family) =>
       modifyTextStyle(context, (style) => style.copyWith(fontFamily: family));
 
+  /// Same as copy and modify the font family fallback
+  /// of [DefaultTextStyle.style]
+  /// and wrap this widget with such data.
+  /// Calling those methods more than once might waste performance.
   Widget wrapFontFamilyFallback(
     BuildContext context,
     List<String> fontFamilyFallback,
