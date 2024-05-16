@@ -1,3 +1,8 @@
+## 0.4.1
+
+- Doc alert value modify cover in the same context.
+- Update example code.
+
 ## 0.4.0
 
 - Wrap string into text widget.

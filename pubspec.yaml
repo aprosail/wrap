@@ -1,6 +1,6 @@
 name: wrap
 description: Chain style programming syntax sugar utilities for flutter widgets.
-version: 0.4.0
+version: 0.4.1
 repository: https://github.com/aprosail/wrap
 environment: {sdk: ">=3.3.4 <4.0.0", flutter: ">=3.19.6"}
 
