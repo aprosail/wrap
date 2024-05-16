@@ -14,7 +14,11 @@ extension WrapSize on Widget {
     return NotificationListener(
       onNotification: (notification) {
         if (notification is SizeChangedLayoutNotification) {
-          listener(context.size ?? MediaQuery.of(context).size);
+          WidgetsBinding.instance.addPostFrameCallback(
+            (timestamp) => listener(
+              context.size ?? MediaQuery.of(context).size,
+            ),
+          );
           return true;
         }
         return false;
