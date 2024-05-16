@@ -4,17 +4,10 @@ import 'package:wrap/wrap.dart';
 
 void main() {
   testWidgets('ensure text environment', (t) async {
-    await t.pumpWidget(const App());
+    const message = 'it works';
+    await t.pumpWidget(ReContext(
+      (context) => const Text(message).ensureTextEnvironment(context),
+    ));
     expect(find.text(message), findsOneWidget);
   });
-}
-
-const message = 'it works';
-
-class App extends StatelessWidget {
-  const App({super.key});
-
-  @override
-  Widget build(BuildContext context) =>
-      const Text(message).ensureTextEnvironment(context);
 }
