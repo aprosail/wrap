@@ -3,6 +3,12 @@ description: Chain style programming syntax sugar utilities for flutter widgets.
 version: 0.5.0
 repository: https://github.com/aprosail/wrap
 environment: {sdk: ">=3.3.4 <4.0.0", flutter: ">=3.19.6"}
+topics:
+  - syntax-sugar
+  - code-style
+  - chain-style
+  - chain-programming
+  - flutter-widgets
 
 dependencies:
   flutter: {sdk: flutter}
