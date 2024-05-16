@@ -1,3 +1,8 @@
+## 0.3.0
+
+- `ReContext` as a conciser way for `Builder`.
+- Wrap `ReContext` on widgets.
+
 ## 0.2.0
 
 - Wrap center.
