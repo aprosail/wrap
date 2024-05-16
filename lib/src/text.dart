@@ -70,7 +70,9 @@ extension WrapTextStyle on Widget {
   /// When you are going to modify more than one property,
   /// you should use [modifyTextStyle] or [wrapTextStyle] instead,
   /// which is more effective.
+  ///
   /// Calling those methods more than once might waste performance.
+  /// And calling them in the same context will cover the previous value.
   Widget wrapFontSize(BuildContext context, double size) {
     assert(size > 0);
     return DefaultTextStyle(
@@ -81,7 +83,14 @@ extension WrapTextStyle on Widget {
 
   /// Same as copy and modify the font family of [DefaultTextStyle.style]
   /// and wrap this widget with such data.
+  ///
+  /// This method will only modify one property.
+  /// When you are going to modify more than one property,
+  /// you should use [modifyTextStyle] or [wrapTextStyle] instead,
+  /// which is more effective.
+  ///
   /// Calling those methods more than once might waste performance.
+  /// And calling them in the same context will cover the previous value.
   Widget wrapFontFamily(BuildContext context, String family) =>
       DefaultTextStyle(
         style: DefaultTextStyle.of(context).style.copyWith(fontFamily: family),
@@ -91,7 +100,14 @@ extension WrapTextStyle on Widget {
   /// Same as copy and modify the font family fallback
   /// of [DefaultTextStyle.style]
   /// and wrap this widget with such data.
+  ///
+  /// This method will only modify one property.
+  /// When you are going to modify more than one property,
+  /// you should use [modifyTextStyle] or [wrapTextStyle] instead,
+  /// which is more effective.
+  ///
   /// Calling those methods more than once might waste performance.
+  /// And calling them in the same context will cover the previous value.
   Widget wrapFontFamilyFallback(
     BuildContext context,
     List<String> fontFamilyFallback,
@@ -105,6 +121,14 @@ extension WrapTextStyle on Widget {
 
   /// Same as copy and modify the color of [DefaultTextStyle.style]
   /// and wrap this widget with such data.
+  ///
+  /// This method will only modify one property.
+  /// When you are going to modify more than one property,
+  /// you should use [modifyTextStyle] or [wrapTextStyle] instead,
+  /// which is more effective.
+  ///
+  /// Calling those methods more than once might waste performance.
+  /// And calling them in the same context will cover the previous value.
   Widget wrapFontColor(BuildContext context, Color color) => DefaultTextStyle(
         style: DefaultTextStyle.of(context).style.copyWith(color: color),
         child: this,
