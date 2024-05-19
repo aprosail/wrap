@@ -2,6 +2,7 @@ export 'src/align.dart';
 export 'src/color.dart';
 export 'src/context.dart';
 export 'src/decorate.dart';
+export 'src/handler.dart';
 export 'src/inherit.dart';
 export 'src/list.dart';
 export 'src/media.dart';
