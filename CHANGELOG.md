@@ -1,3 +1,9 @@
+## 0.6.0
+
+- Inherit data from widget tree ancestors.
+- Wrapper to handle data onto widget tree.
+- Replace the old [Inherit](https://pub.dev/inherit) package.
+
 ## 0.5.2
 
 - Fix bug about calling `setState` when `build`.
