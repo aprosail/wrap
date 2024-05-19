@@ -10,7 +10,7 @@ import 'package:flutter/widgets.dart';
 class InheritedData<T> extends InheritedWidget {
   /// Register an inherited [data] into the widget tree.
   /// That all its descendants can access the [data]
-  /// by calling the [FindInherit.of] method (an extension on [BuildContext]).
+  /// by calling the [FindInherit.find] method (an extension on [BuildContext]).
   ///
   /// It's more recommended to use [WrapInherit.wrapInherit]
   /// (an extension on [Widget])
@@ -24,7 +24,7 @@ class InheritedData<T> extends InheritedWidget {
   final T data;
 
   @override
-  bool updateShouldNotify(covariant InheritedData oldWidget) =>
+  bool updateShouldNotify(covariant InheritedData<T> oldWidget) =>
       this.data != oldWidget.data;
 }
 
