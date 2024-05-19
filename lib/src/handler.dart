@@ -52,4 +52,7 @@ extension UpdateHandlerData on BuildContext {
 
   void updateAndTrust<T>(T data) =>
       findAndTrust<InheritHandlerCaller<T>>().updater(data);
+
+  void updateAndCheck<T>(T data) =>
+      findAndCheck<InheritHandlerCaller<T>>().updater(data);
 }

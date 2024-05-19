@@ -58,4 +58,10 @@ extension FindInherit on BuildContext {
     assert(data != null, 'cannot find $T in context');
     return data!;
   }
+
+  T findAndCheck<T>() {
+    final data = find<T>();
+    if (data == null) throw Exception('cannot find $T in context');
+    return data;
+  }
 }
