@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../wrap.dart';
+import 'inherit.dart';
 
 class InheritHandler<T> extends StatefulWidget {
   const InheritHandler({
