@@ -1,3 +1,10 @@
+## 0.6.0
+
+- Inherit data from widget tree ancestors.
+- Wrapper to handle data onto widget tree.
+- Replace the old [Inherit](https://pub.dev/inherit) package.
+- Apply [StrictLints](https://pub.dev/strict_lints) options.
+
 ## 0.5.2
 
 - Fix bug about calling `setState` when `build`.

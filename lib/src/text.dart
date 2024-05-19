@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:wrap/wrap.dart';
+
+import 'media.dart';
 
 extension WrapDirectionality on Widget {
   Widget wrapDirectionality(TextDirection direction) => Directionality(

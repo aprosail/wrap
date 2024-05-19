@@ -13,24 +13,26 @@ extension WrapSize on Widget {
   ///    the size is based on the context of this widget,
   ///    so that the inner size change listener should be close to
   ///    where the context is build, or there might be potential conflicts.
-  Widget listenSizeChange(State state, void Function(Size size) listener) {
-    return NotificationListener(
-      onNotification: (notification) {
-        if (notification is SizeChangedLayoutNotification) {
-          final context = state.context;
-          listener(context.size ?? MediaQuery.of(context).size);
-          WidgetsBinding.instance.addPostFrameCallback(
-            // ignore: invalid_use_of_protected_member
-            (timestamp) => state.setState(() {}),
-          );
+  Widget listenSizeChange(State state, void Function(Size size) listener) =>
+      NotificationListener(
+        onNotification: (notification) {
+          if (notification is! SizeChangedLayoutNotification) return false;
+          state.resolveSizeChange(listener);
           return true;
-        }
-        return false;
-      },
-      child: SizeChangedLayoutNotifier(child: this),
-    );
-  }
+        },
+        child: SizeChangedLayoutNotifier(child: this),
+      );
 
   Widget wrapPadding(EdgeInsets padding) =>
       Padding(padding: padding, child: this);
+}
+
+extension _ResolveSizeChange on State {
+  void resolveSizeChange(void Function(Size size) listener) {
+    listener(context.size ?? MediaQuery.of(context).size);
+    WidgetsBinding.instance.addPostFrameCallback(
+      // ignore: invalid_use_of_protected_member
+      (timestamp) => setState(() {}),
+    );
+  }
 }
