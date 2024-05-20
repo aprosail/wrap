@@ -6,7 +6,7 @@ void main() {
   testWidgets('inherit and find', (t) async {
     const message = 'it works';
     await t.pumpWidget(
-      ReContext(
+      builder(
         (context) => Text(context.findAndTrust<String>())
             .wrapCenter
             .ensureTextEnvironment(context),

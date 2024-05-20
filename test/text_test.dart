@@ -5,7 +5,7 @@ import 'package:wrap/wrap.dart';
 void main() {
   testWidgets('ensure text environment', (t) async {
     const message = 'it works';
-    await t.pumpWidget(ReContext(
+    await t.pumpWidget(builder(
       (context) => const Text(message).ensureTextEnvironment(context),
     ));
     expect(find.text(message), findsOneWidget);
@@ -16,7 +16,7 @@ void main() {
     const fontSize = 23.4;
     const fontFamily = 'iosevka';
     await t.pumpWidget(
-      ReContext((context) {
+      builder((context) {
         final font = DefaultTextStyle.of(context).style;
         return <Widget>[
           'font color: ${font.color}'.textWidget,

@@ -1,16 +1,28 @@
 import 'package:flutter/widgets.dart';
 
 extension WrapContext on Widget {
+  /// Same as wrapping current widget with a [Builder], which keeps chain style.
   Widget wrap(Widget Function(BuildContext context, Widget child) builder) =>
-      ReContext((context) => builder(context, this));
+      Builder(builder: (context) => builder(context, this));
 }
 
-/// Refresh context, same as [Builder] but with conciser API.
-class ReContext extends StatelessWidget {
-  const ReContext(this.builder, {super.key});
+/// An encapsulation of [Builder], which makes it conciser.
+Widget builder(Widget Function(BuildContext context) builder) =>
+    Builder(builder: builder);
 
-  final Widget Function(BuildContext context) builder;
+extension WrapMedia on Widget {
+  Widget wrapMedia(MediaQueryData data) => MediaQuery(data: data, child: this);
 
-  @override
-  Widget build(BuildContext context) => builder(context);
+  /// Ensure the widget is wrapped by a [MediaQuery] ancestor.
+  ///
+  /// Provide environment for [MediaQuery.of] that many widgets need,
+  /// including the [Text] widget. Without such ancestor,
+  /// once displaying a [Text],
+  /// it will throw exceptions.
+  Widget ensureMedia(BuildContext context) {
+    final media = MediaQuery.maybeOf(context);
+    return media == null
+        ? wrapMedia(MediaQueryData.fromView(View.of(context)))
+        : this;
+  }
 }

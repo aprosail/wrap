@@ -5,7 +5,7 @@ import 'package:wrap/wrap.dart';
 void main() {
   testWidgets('re context root', (t) async {
     await t.pumpWidget(
-      ReContext((context) => const ColorProbe()
+      builder((context) => const ColorProbe()
           .wrapForeground(context, foreground)
           .ensureTextEnvironment(context)),
     );

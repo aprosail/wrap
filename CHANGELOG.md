@@ -1,3 +1,9 @@
+## 0.7.0
+
+- **Incompatible**: API about `ReContext` changed.
+- Use `builder` instead of `ReContext`, which is conciser.
+- Optimize tests and tidy code structure.
+
 ## 0.6.0
 
 - Inherit data from widget tree ancestors.
